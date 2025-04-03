@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel = "stylesheet" href = "style.css">
+    <title>Document</title>
+    <script src = "app.js" defer></script>
+</head>
+<body>
+    <div class = "container">
+
+        <!-- section and div has similar meaning, but section provide better readibility and if the content has meaning? -->
+        <section class = "toolbar" id = "main-toolbar">
+            <!-- * SHAPES SELECT -->
+            <div class = "row">
+                <label class = "text-title" id = "bigger-text">Shapes</label>
+
+                <ul class="options"> <!-- * ul for the options unordered list, li is the item list -->
+                    <li class="option tool" id = "Rectangle">
+                        <img class = "option-item-class" src = "res/icons/rectangle.svg" alt ="">
+                        <span class = "text-shapes">Rectangle</span>
+                    </li>
+                    <li class="option tool" id = "Circle">
+                        <img class = "option-item-class" src = "res/icons/circle.svg" alt ="">
+                        <span class = "text-shapes">Circle</span>
+                    </li>
+                    <li class="option tool" id = "Triangle">
+                        <img class = "option-item-class" src = "res/icons/triangle.svg" alt ="">
+                        <span class = "text-shapes">Triangle</span>
+                    </li>
+                    <!-- <li class="option">
+                        <img class = "option-item-class" src = "res/icons/eraser.svg" alt ="">
+                        <span class = "text-shapes">Eraser</span>
+                    </li> -->
+
+                    <li class = "option" id = "checkbox-fillcolor">
+                        <input type = "checkbox" id = "fill-color">
+                        <label for = "fill-color" class = "text-title">Fill Shape Color</label>
+                    </li>
+
+                    
+                </ul>
+
+            </div>
+
+            <hr class="dotted">
+
+            <!-- * MODE SELECT (BRUSH/ERASER) & SIZE -->
+            <div class = "row">
+                <label class = "text-title"  id = "bigger-text">Mode</label>
+
+                <ul class="options"> <!-- * ul for the options unordered list, li is the item list -->
+                    <li class="option active tool" id = "Brush">
+                        <img class = "option-item-class" src = "res/icons/brush.svg" alt ="">
+                        <span class = "text-shapes">Brush</span>
+                    </li>
+                    <li class="option tool" id = "Eraser">
+                        <img class = "option-item-class" src = "res/icons/eraser.svg" alt ="" style = "width:20px; height:20px">
+                        <span class = "text-shapes">Eraser</span>
+                    </li>
+
+                    <li class="option tool" id = "Image">
+                        <!-- hidden file picker -->
+                        <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                        <img class = "option-item-class" src = "res/icons/img-tool.svg" alt ="" style = "width:20px; height:20px">
+                        <span class = "text-shapes">Import Image</span>
+                    </li>
+
+                    <li>
+                        <label class = "text-shapes">Size</label>
+                    </li>
+                    <li class = "option">
+                        <input type = "range" id = "brushsize-slider" name = "size" min = "1" max = "200" value = "50">
+                    </li>
+
+                </ul>
+
+            
+            </div>
+
+            <hr class="dotted">
+
+            <!-- * FONT MENU -->
+            <div class="row font-menu">
+                <label class = "text-title"  id = "bigger-text">Font</label>
+
+                <ul class="options">
+                    <li class="option tool" id = "Font">
+                        <img class = "option-item-class" src = "res/icons/text-tool.svg" alt ="" style="height: 20x; width: 20px;">
+                        <span class = "text-shapes">Text Tool</span>
+                    </li>
+
+                    <span class ="horizontal-btns" >
+                        <select id = "font-family" class = "select">
+                            <option value = "Arial">Arial</option>
+                            <option value = "Verdana">Verdana</option>
+                            <option value = "Courier New">Courier New</option>
+                            <option value = "Comic Sans MS">Comic Sans MS</option>
+                            <option value = "Brush Script MT">Brush Script MT</option>
+                            <option value = "Garamond">Garamond</option>
+                            <option value = "Times New Roman">Times New Roman</option>
+                        </select>
+                        <input class = "inputnumber" type = "number" id = "font-size" value = "20" min = "5" max = "100">
+                    </span>
+                </ul>
+
+
+            </div>
+
+            <hr class="dotted">
+
+            <!-- * COLOR SELECT -->
+
+            <div class = "row colors-pick">
+                <label class = "text-title" id = "bigger-text">Colors</label>
+
+                <ul class="options"> <!-- * ul for the options unordered list, li is the item list -->
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option selected"></li>
+                </ul>
+            </div>
+
+            <hr class="dotted">
+
+            <!-- * CANVAS OPTIONS -->
+            <div class = "row buttons">
+                <label class = "text-title"  id = "bigger-text">Canvas</label>
+                <flex class = "canvas-size">
+                    <label for="canvas-width" class = "text-title">X:</label>
+                    <input class = "inputnumber" type="number" id="canvas-width" placeholder="Width" min = "100" max = "2000" value="1000" />
+                    <label for="canvas-height" class = "text-title">Y:</label>
+                    <input class = "inputnumber" type="number" id="canvas-height" placeholder="Height" min = "100" max = "2000" value="600" />
+                    
+                </flex>
+                <button id="resize-canvas">Apply</button>
+                <button class="menuBtn" id = "btn-reset-canvas">Clear Canvas</button>
+            </div>
+
+            <hr class="dotted">
+
+            <div class = "row buttons">
+                <flex class="horizontal-btns">
+                    <button class="undo-button menuBtn" id = "undo-button">Undo</button>
+                    <button class="redo-button menuBtn" id = "redo-button">Redo</button>
+                </flex>
+                <button class="menuBtn" id = "btn-download-img">Download</button>
+            </div>
+        </section> 
+
+        <!-- * Input box for font tool (hidden when on start) -->
+        <input type = "text" id = "font-text-input" placeholder="Type here..." style = "position: absolute; display: none;">
+
+        <!--  * FLOATING TOOLBAR FOR OUR IMAGE TRANSFORMATION TOOL -->
+        <div class="img-transform-toolbar hidden" id = "img-transform-toolbar">
+            <label class = "text-title" style = "color: white;">Image Transform Mode</label>
+            <span class = "horizontal-btns it-btns-span">
+                <button id = "imgtransform-cancel-btn" class = "sq-btn">
+                    <img src = "res/icons/cancel.svg" style = "width: 25px; height: 25px;">
+                </button>
+                <button id = "imgtransform-proceed-btn" class = "sq-btn">
+                    <img src = "res/icons/check.svg" style = "width: 25px; height: 25px;">
+                </button>
+            </span>
+        </div>
+        
+        <section class = "drawing-canvas">
+            <canvas id = "canv"></canvas>
+        </section>
+
+    </div>
+</body>
+</html>

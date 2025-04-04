@@ -20,74 +20,72 @@
 
 | **Other useful widgets** | **Score** | **Check** |
 | :----------------------- | :-------: | :-------: |
-| Fill funcrtion           |   1~5%    |    Y      |
-
+| Image Resizing & Move System           |   1~5%    |    Y      |
+| Resizable Dynamic Cursor for brush & eraser           |   1~5%    |    Y      |
+| Canvas Resize           |   1~5%    |    Y      |
 
 ---
 
 ### How to use 
 
-1.	Tool Selection
- - Sidebar Tools:
-On the left sidebar, you will find several tool buttons:
- - Brush: Draw freehand lines.
- - Eraser: Erase parts of your drawing.
- - Text: Click anywhere on the canvas to add text.
- - Shapes: Buttons for drawing shapes such as Circle, Rectangle, and Triangle.
- - Image Insertion: A button (with a custom icon) to upload an image.
- - Brush Size Slider: Adjust the brush stroke size using the vertical slider.
- - Color Picker: Click the color display to open the color picker modal.
+The web divided into 2 part, the toolbar and the drawing canvas.
+The drawing canvas is responsive meaning you can resize the canvas as anything youwant and you can scroll through it.
 
-2.	Drawing on the Canvas
-- Freehand Drawing (Brush):
-Select the Brush tool and use the mouse to draw freehand. Adjust the stroke width using the slider.
- - Erasing:
-Choose the Eraser tool to clear portions of your drawing by dragging over them.
- - Text Input:
-Select the Text tool and click on the canvas where you want your text to appear. A text input field will appear; type your text and press Enter (or click outside) to render it on the canvas.
- - Shape Drawing:
-Select one of the Shape tools (Circle, Rectangle, Triangle). Click and drag on the canvas to create a preview of the shape as you move the mouse. When you release the mouse button, the final shape is drawn.
+**1. Toolbar Menu**
+- Shapes -> Rectangle, Circle, Triangle (all supports fill shape color). Choose the color first (default color: black)
+- Mode -> Brush, Eraser, Import Image
+- Font -> Press on the Text Tool first to enable font style editing (you can change the font and the size)
+- Colors -> You can pick from the color square or just press on the circle (quick access)
+- Canvas -> You can resize the canvas both on X and Y axis, click Apply. There is also Clear Canvas button
+- Tools -> Undo / Redo, Download
 
-3.	Image Insertion
- - Click the image insertion button (displayed with the custom “insert_image.png” icon) to open a file dialog.
- - Select an image file. The application will resize the canvas to match the image’s original dimensions and center the image in the canvas container.
+**2. Drawing on the Canvas**
+- Brush -> You can choose the size of the brush and set the color as anything you like
+- Eraser -> I use the globalCompositeOperation method, so it will correctly erase anything.
+- Shapes -> Choose between rectangle, circle or triangle and start drawing on the canvas by clicking on it. Release the mouse button to stop drawing and it will fix the shape in place.
+- Text -> You can change the font family and font size if you are on the text tool mode, so click on text tool mode first before changing. Text preview will be previewed in real-time (including the size & font also)
 
-4.	Color Selection
- - Click the Color button (which shows the current color) on the sidebar to open the color picker modal.
- - Use the color wheel to choose a color, or type a Hex value or RGB value into the provided input fields. The selected color is immediately applied to your drawing tools and displayed in the color indicator.
+**3. Image Insertion**
+ - Click the Import Image button to open a file dialog and you can choose any image there
+ - The web will be in "Image Transformation Mode" that you can resize and move the image freely in the canvas (you can't press on any other tool until you confirm).
+- You will see a small menu appears on the top of the screen (X and Y button). X will cancel the image import and Y will fix the image in place
 
-5.	Undo/Redo
- - Undo: Click the Undo button to revert the last drawing action. You can keep pressing Undo to step back through your drawing history until the canvas is empty.
- - Redo: If you have undone an action, click the Redo button to restore the most recent undone action.
+**4. Color Selection**
+ - Pick a color from the color square (click on it) and the selected color will change (indicated by the square below). You can also pick the color from the quick access color picker (the circle)
 
-6.	Refresh and Download
- - Refresh: Click the Refresh button to clear the canvas completely. This resets the drawing history so you can start fresh.
- - Download: Click the Download button to save your current canvas drawing as an image file (PNG).
+**5. Undo/Redo**
+ - Undo: Click the Undo button to revert the last drawing action. The stack has a limit of 25 to save performance
+ - Redo: CLick the redo button to revert to the next drawing.
+Both undo & redo button will be disabled if the stack is empty.
+
+**6. Canvas Adjustment**
+ - You can set both X and Y size of the canvas there. After you change those number, the apply button will be enabled and you can click on Apply. The canvas will now resizes.
+ - Clear Canvas -> This will clear everything on the canvas including the undo/redo stack.
+
+**7. Download**
+This will save the snapshots of the canvas (including its size) and will be downloaded as png
 
 ### Bonus Function description
 
-Fill-in Mode
+**1. Image Resizing & Move System**
+As I said before, when you import an image, it will be on "image transformation" mode where you can resize/move the image freely in the canvas.
 
-The Fill-in (or Fill) mode is an additional feature that allows you to fill shapes with the selected color:
- - How It Works:
-When Fill-in mode is enabled (via the bonus toggle you can add to your sidebar), drawing a shape (Circle, Rectangle, or Triangle) will render it filled with the current color rather than just an outline.
- - Usage:
-	1.	Activate Fill-in mode by checking the Fill toggle button.
-	2.	Select a shape tool (e.g., Circle) from the sidebar.
-	3.	Click and drag on the canvas. While dragging, you’ll see a preview of the shape; once you release the mouse button, the shape will be drawn filled with the chosen color.
+**2. Resizable Dynamic Cursor for brush & eraser**
+When you are on either brush/eraser mode, then you modify the size of the brush, the dynamic cursor will also follow the size of brush.
+
+**3. Canvas Resize**
+You can freely resize the canvas size
+
 
 
 ### Web page link
 
-Project Console: https://console.firebase.google.com/project/software-studio-3c5ce/overview
-Hosting URL: https://software-studio-3c5ce.web.app
+Project Console: https://console.firebase.google.com/u/0/project/ss-hw1-112006223/overview
+
+Hosting URL: https://ss-hw1-112006223.firebaseapp.com/
 
 ### Others (Optional)
+- color square won't work on the (.webapp) so I give you the firebaseapp.com
 
-Thanks!
+Thank you TA!
 
-<style>
-table th{
-    width: 100%;
-}
-</style>
